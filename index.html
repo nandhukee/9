@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.fizzbuzz
+
+      for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+        } else {
+          console.log(i);
+        }
+      }
+
+      // 2.pallindrome
+      function isPalindrome(str) {
+        const reversedStr = str.split("").reverse().join("");
+        return str === reversedStr;
+      }
+
+      // Example usage:
+      console.log("madam-" + isPalindrome("madam")); // true
+
+      console.log("hello-" + isPalindrome("hello")); // false
+
+      // 3.greatest in an array
+      function findLargestNumber(numbers) {
+        if (numbers.length === 0) {
+          return undefined; // Return undefined for an empty array (or handle as needed)
+        }
+
+        let largest = numbers[0];
+
+        for (let i = 1; i < numbers.length; i++) {
+          if (numbers[i] > largest) {
+            largest = numbers[i];
+          }
+        }
+
+        return largest;
+      }
+
+      const numbersArray = [10, 5, 25, 8, 15];
+      console.log("Largest number:", findLargestNumber(numbersArray));
+
+      //4. frequency of stirng
+
+      function charCounts(str) {
+        const count = {};
+
+        for (const char of str) {
+          if (count[char]) {
+            count[char]++;
+          } else {
+            count[char] = 1;
+          }
+        }
+        return count;
+      }
+      const inputStrig = "hello";
+      console.log(charCounts(inputStrig));
+
+      //5.longest word in string
+
+      function longestWord(str) {
+        const words = str.split(/\s+/);
+        let longest = "";
+
+        for (let word of words) {
+          if (word.length > longest.length) {
+            longest = word;
+          }
+        }
+
+        return longest;
+      }
+
+      const inputString = "Hello there, how are you doing today?";
+      console.log(longestWord(inputString));
+
+      // 6.======FACTORIAL OF THE NUM=====
+
+      function factorial(n) {
+        if (n === 0 || n === 1) {
+          return 1;
+        }
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      // Example usage:
+      const number = 5;
+      console.log(`Factorial of ${number} is: ${factorial(number)}`); // Output: Factorial of 5 is: 120
+
+      // 7.Celsius to fahrenheit
+
+      function celsiusToFahrenheit(celsius) {
+        // Conversion formula: (C × 9/5) + 32
+        const fahrenheit = (celsius * 9) / 5 + 32;
+        return fahrenheit;
+      }
+
+      // Example usage:
+      const celsiusTemperature = 25;
+      const convertedTemperature = celsiusToFahrenheit(celsiusTemperature);
+      console.log(
+        `${celsiusTemperature}°C is equal to ${convertedTemperature}°F`
+      );
+
+      // 8.missing number
+      function findMissingNumber(nums) {
+        const n = nums.length;
+        const expectedSum = (n * (n + 1)) / 2;
+        const actualSum = nums.reduce((sum, num) => sum + num, 0);
+        const missingNumber = expectedSum - actualSum;
+        return missingNumber;
+      }
+
+      // Example usage:
+      const nums = [3, 0, 1];
+      const missing = findMissingNumber(nums);
+      console.log(missing);
+    </script>
+  </body>
+</html>
